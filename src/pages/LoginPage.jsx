@@ -11,9 +11,9 @@
 // }
 
 import React, { useState } from 'react';
-import SignUpForm from './SignUpForm';
-import LoginForm from './LoginForm';
-import UserProfile from './UserProfile';
+import SignUpForm from '../components/SignUpForm';
+import LoginForm from '../components/LoginForm';
+import UserProfile from './ProfilePage';
 
 export default function LoginPage() {
   const [user, setUser] = useState(null);

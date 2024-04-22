@@ -20,13 +20,13 @@ export default function LoginPage() {
         <>
           {showLoginForm ? (
             <>
-              <LoginForm setUser={setUser} />
-              <p>No account? <button onClick={toggleForm}>Sign up</button></p>
+              <SignUpForm setUser={setUser} />
+              <p>Have an account? <button onClick={toggleForm}>Log in</button></p>
             </>
           ) : (
             <>
-              <SignUpForm setUser={setUser} />
-              <p>Have an account? <button onClick={toggleForm}>Log in</button></p>
+              <LoginForm setUser={setUser} />
+              <p>No account? <button onClick={toggleForm}>Sign up</button></p>
             </>
           )}
         </>

@@ -2,7 +2,7 @@ import sendRequest from './send-request';
 // const BASE_URL = '/users';
 
 export function signUp(userData) {
-  return sendRequest(`${process.env.REACT_APP_BACKEND_URL}/users`, 'POST', userData);
+  return sendRequest(`${process.env.REACT_APP_BACKEND_URL}/user`, 'POST', userData);
 }
 
 

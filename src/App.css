@@ -3,7 +3,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -12,9 +12,9 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -27,13 +27,56 @@
 
 .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */
+
+.recipe-card {
+  background-color: aquamarine;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px; 
+  width: calc(25% - 20px);
+  height: 320px; 
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.recipe-card h2 {
+  margin: 0;
+  margin-bottom: 10px;
+  height: 50px; 
+}
+
+.recipe-card img {
+  width: 100%;
+  height: calc(100% - 50px); 
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
+.recipe-card-view {
+  background-color: aquamarine;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px; 
+  width: 70%;
+  /* width: calc(25% - 20px); */
+  /* height: 320px;  */
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.recipe-card-view img {
+  width: 70%;
 }

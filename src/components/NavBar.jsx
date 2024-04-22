@@ -4,7 +4,7 @@ export default function NavBar() {
     return (
         <nav className="navbar">
             <div>
-                <NavLink to="/login">Login/SignUp</NavLink>
+                <NavLink to="/">Login/SignUp</NavLink>
             </div>
         </nav>
     )

@@ -1,24 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import './index.css';
 // import App from './App';
-// import LoginPage from "./components/LoginPage.jsx"
-// import SignUpForm from './components/SignUpForm.jsx';
-// import LoginForm from './components/LoginForm.jsx';
-import HomePage from './pages/HomePage.jsx';
-// import NavBar from './components/NavBar.jsx';
 
+// ReactDOM.render(
+//   <React.StrictMode>
+//       <App />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    {/* <App /> */}
-    {/* <SignUpForm />
-    <LoginForm /> */}
-    {/* <NavBar /> */}
-    <HomePage />
-    
-  </React.StrictMode>
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root')
 );
-

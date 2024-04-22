@@ -21,7 +21,7 @@ return (
   <main>
     {user ? (
       <div>
-        <UserProfile setUser={setUser}/>
+        <ProfilePage setUser={setUser}/>
         <button type="submit" className="btn btn-primary" onClick={handleLogout}>Logout</button>
       </div>
     ) : (

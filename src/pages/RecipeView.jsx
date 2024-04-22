@@ -13,7 +13,7 @@ export default function RecipeView() {
                     `https://api.spoonacular.com/recipes/${id}/information`,
                     {
                         params: {
-                            apiKey: "41be0aedc5d04c7a87d5a17a3ad437b4"
+                            apiKey: process.env.REACT_APP_KEY
                         }
                     }
                 );

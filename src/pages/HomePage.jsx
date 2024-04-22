@@ -12,10 +12,10 @@ export default function HomePage() {
                     "https://api.spoonacular.com/recipes/complexSearch",
                     {
                         params: {
-                            query: "pasta",
-                            maxFat: 25,
-                            number: 10, // Adjust as needed
-                            apiKey: "41be0aedc5d04c7a87d5a17a3ad437b4" // Your API key here
+                            // query: "pasta",
+                            // maxFat: 25,
+                            // number: 10, // Adjust as needed
+                            apiKey: process.env.REACT_APP_KEY
                         }
                     }
                 );
@@ -35,7 +35,7 @@ export default function HomePage() {
             <div>
                 {recipes.map(recipe => (
                     <div key={recipe.id}>
-                        <Link to={`/recipe/${recipe.id}`}>
+                        <Link to={`/recipes/${recipe.id}`}>
                             <h2>{recipe.title}</h2>
                         </Link>
                         <img src={recipe.image} alt={recipe.title} />

@@ -1,52 +1,6 @@
-
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-
-// export default function HomePage() {
-//     const [recipes, setRecipes] = useState([]);
-
-//     useEffect(() => {
-//         fetchRecipes();
-//     }, []);
-
-//     const fetchRecipes = async () => {
-//         try {
-//             const response = await axios.get(
-//                 "https://tasty.p.rapidapi.com/recipes/list",
-//                 {
-//                     headers: {
-//                         'X-RapidAPI-Key': 'cfb9fc44c9mshf95a1e02a2f8a0ap1d6d26jsnf60922167d5c',
-//                         'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-//                     }
-//                 }
-//             );
-//             console.log(response.data.results);
-//             setRecipes(response.data.results); 
-//         } catch (error) {
-//             console.error('Error fetching recipes:', error);
-//         }
-//     };
-
-//     return (
-//         <div>
-//             <h1>Recipes</h1>
-//             <div>
-//                 {recipes.map(recipe => (
-//                     <div key={recipe.id}>
-//                         <h2>
-//                             <a href={`recipe/${recipe.id}/`}>
-//                                 {recipe.name}
-//                             </a>
-//                         </h2>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// }
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Import Link component
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
     const [recipes, setRecipes] = useState([]);
@@ -55,11 +9,13 @@ export default function HomePage() {
         const fetchRecipes = async () => {
             try {
                 const response = await axios.get(
-                    "https://tasty.p.rapidapi.com/recipes/list",
+                    "https://api.spoonacular.com/recipes/complexSearch",
                     {
-                        headers: {
-                            'X-RapidAPI-Key': 'cfb9fc44c9mshf95a1e02a2f8a0ap1d6d26jsnf60922167d5c',
-                            'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+                        params: {
+                            query: "pasta",
+                            maxFat: 25,
+                            number: 10, // Adjust as needed
+                            apiKey: "41be0aedc5d04c7a87d5a17a3ad437b4" // Your API key here
                         }
                     }
                 );
@@ -79,11 +35,10 @@ export default function HomePage() {
             <div>
                 {recipes.map(recipe => (
                     <div key={recipe.id}>
-                        <h2>
-                            <Link to={`/recipe/${recipe.id}`}>
-                                {recipe.name}
-                            </Link>
-                        </h2>
+                        <Link to={`/recipe/${recipe.id}`}>
+                            <h2>{recipe.title}</h2>
+                        </Link>
+                        <img src={recipe.image} alt={recipe.title} />
                     </div>
                 ))}
             </div>

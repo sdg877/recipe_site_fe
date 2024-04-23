@@ -122,17 +122,32 @@ export default function SignUpForm(props) {
     });
   };
 
+  // const handleSubmit = async (evt) => {
+  //   evt.preventDefault();
+  //   try {
+  //     const user = await signUp(formData);
+  //     props.setUser(user);
+  //     // Redirect to '/recipes' after successful signup
+  //     props.history.push('/recipes');
+  //   } catch {
+  //     setFormData({ ...formData, error: 'Sign Up Failed - Try Again' });
+  //   }
+  // };
+
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const user = await signUp(formData);
+      const formDataCopy = { ...formData };
+      delete formDataCopy.error;
+      delete formDataCopy.confirm;
+      const user = await signUp(formDataCopy);
       props.setUser(user);
-      // Redirect to '/recipes' after successful signup
       props.history.push('/recipes');
     } catch {
       setFormData({ ...formData, error: 'Sign Up Failed - Try Again' });
     }
   };
+  
 
   const disable = formData.password !== formData.confirm;
 

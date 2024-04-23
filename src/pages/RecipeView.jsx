@@ -99,7 +99,7 @@ export default function RecipeView() {
             <p>{stripHtmlTags(recipe.instructions)}</p>
             <p>Ready in: {recipe.readyInMinutes} minutes</p>
             <p>Servings: {recipe.servings}</p>
-            <p>Diets: {formatDiets(recipe.diets)}</p>
+            <p>Dietary Requirements: {formatDiets(recipe.diets)}.</p>
         </div>
     );
 }

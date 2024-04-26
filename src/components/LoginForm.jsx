@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import * as usersService from '../utilities/users-service.js';
 
-
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
     email: '',
@@ -14,29 +13,16 @@ export default function LoginForm({ setUser }) {
     setError('');
   }
 
-  // async function handleSubmit(evt) {
-  //   evt.preventDefault();
-  //   try {
-  //     const user = await usersService.login(credentials);
-  //     setUser(user);
-  //   } catch {
-  //     setError('Log In Failed - Try Again');
-  //   }
-  // }
-
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const user = await usersService.login(credentials);
-      // Stringify the token before storing it in local storage
-      localStorage.setItem('token', JSON.stringify(user.token));
-      // Set the user in the state or perform any other action
+      const { user, token } = await usersService.login(credentials);
+      localStorage.setItem('token', token);
       setUser(user);
     } catch {
       setError('Log In Failed - Try Again');
     }
   }
-  
 
   return (
     <div className="container-mt-5">

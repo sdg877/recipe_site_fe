@@ -6,7 +6,7 @@ export function signUp(userData) {
 
 
 export function login(credentials) {
-  return sendRequest(`${process.env.REACT_APP_BACKEND_URL}/user/login`, 'POST', credentials);
+  return sendRequest(`${process.env.REACT_APP_BACKEND_URL}/api/users/login`, 'POST', credentials);
 }
 
 export function checkToken(){

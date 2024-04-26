@@ -17,48 +17,54 @@ export async function signUp(userData) {
   }
 }
 
+
 export async function login(userData) {
   try {
-    const token = await usersAPI.login(userData);
-    localStorage.setItem('token', token);
-    return getUser();
+    const { user, token } = await usersAPI.login(userData);
+    localStorage.setItem('token', String(token)); 
+    localStorage.setItem('user', JSON.stringify(user));
+    return { user, token }; 
   } catch (error) {
     console.error('Login failed:', error);
     throw error;
   }
 }
 
+
 export function logOut() {
   localStorage.removeItem('token');
 }
 
 export function getToken() {
-  console.log('Getting token...');
-  const token = localStorage.getItem('token');
+
+  const token = String(localStorage.getItem('token')); 
+
   if (!token) return null;
 
   try {
     const tokenParts = token.split('.');
     if (tokenParts.length !== 3) {
-      throw new Error('Invalid token format');
+      throw new Error('Invalid token format: Token does not have 3 parts');
     }
 
     const payload = JSON.parse(atob(tokenParts[1]));
-    console.log('Decoded payload:', payload);
+  
 
-    if (payload.exp * 1000 < Date.now()) {
-      console.error('Token has expired');
-      localStorage.removeItem('token');
-      return null;
+    if (!payload || typeof payload !== 'object') {
+      throw new Error('Invalid token format: Payload is not a valid object');
     }
 
-    return token;
+    if (!payload.user) {
+      throw new Error('Invalid token format: User data is missing');
+    }
+
+    return token; 
   } catch (error) {
-    console.error('Error processing token:', error);
     localStorage.removeItem('token');
     return null;
   }
 }
+
 
 export function getUser() {
   console.log('Getting user...');

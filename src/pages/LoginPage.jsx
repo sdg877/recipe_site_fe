@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import SignUpForm from '../components/SignUpForm';
 import LoginForm from '../components/LoginForm';
-import UserProfile from './ProfilePage';
+import { Navigate } from 'react-router-dom'; 
 
 export default function LoginPage() {
   const [user, setUser] = useState(null);
@@ -15,7 +14,7 @@ export default function LoginPage() {
   return (
     <main>
       {user ? (
-        <UserProfile user={user} />
+        <Navigate to="/recipes" />
       ) : (
         <>
           {showLoginForm ? (
@@ -34,5 +33,3 @@ export default function LoginPage() {
     </main>
   );
 }
-
-

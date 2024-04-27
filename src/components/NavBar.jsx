@@ -13,6 +13,7 @@ export default function NavBar() {
       <div>
         <NavLink to="/">Login/SignUp</NavLink> <br />
         <NavLink to="/recipes">Recipes</NavLink> <br />
+        <NavLink to="/profile">Profile</NavLink> <br />
         <button onClick={handleLogout}>Logout</button>
       </div>
     </nav>

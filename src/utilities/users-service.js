@@ -67,7 +67,6 @@ export function getToken() {
 
 
 export function getUser() {
-  console.log('Getting user...');
   const token = getToken();
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }
@@ -75,3 +74,4 @@ export function getUser() {
 export async function checkToken() {
   return await usersAPI.checkToken().then(dateStr => new Date(dateStr));
 }
+

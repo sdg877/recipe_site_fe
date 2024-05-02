@@ -14,7 +14,7 @@ export default function LoginPage() {
   return (
     <main>
       {user ? (
-        <Navigate to="/recipes" />
+        <Navigate to="/profile" />
       ) : (
         <>
           {showLoginForm ? (

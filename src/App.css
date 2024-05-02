@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
@@ -14,6 +14,31 @@
   box-sizing: border-box;
   display: inline-block;
 }
+
+.recipe-card-profile {
+  background-color: aquamarine;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px; 
+  width: calc(25% - 20px);
+  height: 250px; 
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.recipe-card-view {
+  background-color: aquamarine;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px auto; 
+  width: 70%;
+  align-items: center;
+  /* height: 320px;  */
+  /* box-sizing: border-box;
+  display: inline-block; */
+/* }
 
 .recipe-card h2 {
   margin: 0;
@@ -42,3 +67,96 @@
     height: auto; 
   }
 }
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 10px; 
+} */
+
+
+/* App.css */
+
+.App {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.recipe-card {
+  background-color: aquamarine;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px; 
+  width: calc(25% - 20px);
+  height: 320px; 
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.recipe-card-profile {
+  position: relative; /* Ensure relative positioning */
+  background-color: aquamarine;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px; 
+  width: calc(25% - 20px);
+  height: 250px; 
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.recipe-card-profile h2 {
+  margin: 0;
+  margin-bottom: 10px;
+  height: 50px;
+  position: relative; /* Ensure relative positioning */
+  z-index: 1; /* Set z-index to appear above dropdown */
+}
+
+.recipe-card-profile select {
+  margin-bottom: 10px;
+  position: relative; /* Ensure relative positioning */
+  z-index: 1; /* Set z-index to appear above background */
+}
+
+.recipe-card-profile img {
+  width: 100%;
+  height: calc(100% - 50px);
+  object-fit: contain;
+  border-radius: 8px;
+  position: relative; /* Ensure relative positioning */
+  z-index: 0; /* Set z-index to appear below other elements */
+}
+
+@media screen and (max-width: 768px) {
+  .recipe-card {
+    width: 100%; 
+    height: auto; 
+  }
+
+  .recipe-card img {
+    height: auto; 
+  }
+
+  .recipe-card h2 {
+    height: auto; 
+  }
+
+  .recipe-card-profile {
+    width: 100%;
+    height: auto;
+  }
+
+  .recipe-card-profile img {
+    height: auto;
+  }
+
+  .recipe-card-profile h2 {
+    height: auto;
+  }
+}
+

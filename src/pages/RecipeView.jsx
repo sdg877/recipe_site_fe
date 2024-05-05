@@ -65,11 +65,13 @@ export default function RecipeView() {
         <>
           <h1>{recipe.title}</h1> 
           <img src={recipe.image} alt={recipe.title} /> 
-          <h2>Instructions:</h2>
+
+          <h4>Instructions:</h4>
           <p>{stripHtmlTags(recipe.instructions)}</p>
           <p>Ready in: {recipe.readyInMinutes} minutes</p>
           <p>Servings: {recipe.servings}</p>
           <p>Dietary Requirements: {formatDiets(recipe.diets)}.</p>
+          
           <div className="button-container">
             {isAuthenticated() ? (
               <button

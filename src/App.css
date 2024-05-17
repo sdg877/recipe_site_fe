@@ -10,7 +10,7 @@
   padding: 20px;
   margin: 10px;
   width: calc(25% - 20px);
-  height: 400px; 
+  height: 180px; 
   box-sizing: border-box;
   display: inline-block;
 }
@@ -27,7 +27,8 @@
 
 .recipe-card img {
   width: 100%;
-  height: calc(100% - 70px); 
+  height: auto; 
+  max-height: 150px; 
   object-fit: cover;
   border-radius: 8px;
 }
@@ -41,6 +42,7 @@
   .recipe-card img {
     height: 100%;
     margin: 20px;
+    max-height: none;
   }
 
   .recipe-card h2 {
@@ -74,24 +76,92 @@ h1, h2, h4 {
   background-color: azure;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 10px; /* Reduce padding */
+  padding: 10px; 
   margin: 10px; 
-  width: calc(25% - 20px);
-  height: 250px; 
+  width: calc(20% - 20px);
+  height: 200px; 
   box-sizing: border-box;
   display: inline-block;
 }
 
 .recipe-container {
-  text-align: center; /* Align the cards */
+  text-align: center; 
 }
 
 .recipe-card-profile h2 {
   margin: 0;
-  margin-bottom: 18px;
-  font-size: 14px; /* Adjust font size */
+  margin-bottom: 10px; 
+  font-size: 12px;
   line-height: 1.2; 
   overflow: hidden; 
   text-overflow: ellipsis; 
   white-space: nowrap; 
+}
+
+.recipe-card-profile select {
+  width: 100%; 
+  padding: 5px; 
+  margin-bottom: 10px; 
+  font-size: 14px; 
+  border-radius: 4px; 
+}
+
+.recipe-card-profile button {
+  padding: 5px 10px; 
+  font-size: 14px;
+}
+
+.navbar {
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .recipe-card-profile {
+    width: 100%; 
+    margin: 10px 0; 
+    height: auto;
+  }
+
+  .recipe-card-profile select {
+    font-size: 12px; 
+    padding: 3px; 
+  }
+
+  .recipe-card-profile button {
+    font-size: 12px; 
+    padding: 5px; 
+  }
+
+  .recipe-card-profile h2 {
+    font-size: 14px; 
+  }
+}
+
+.filter-search-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; 
+  margin-bottom: 20px; 
+}
+
+.filter-search-container select,
+.filter-search-container input {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 200px; 
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .filter-search-container {
+    flex-direction: column;
+    gap: 10px; 
+  }
+
+  .filter-search-container select,
+  .filter-search-container input {
+    width: 100%; 
+  }
 }

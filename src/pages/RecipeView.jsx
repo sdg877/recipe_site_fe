@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default function RecipeView() {
   const [recipe, setRecipe] = useState(null);
+  const [ingredients, setIngredients] = useState([]);
   const [saved, setSaved] = useState(false);
 
   const isAuthenticated = () => {
@@ -24,8 +25,8 @@ export default function RecipeView() {
             }
           }
         );
-        console.log(response.data);
         setRecipe(response.data);
+        setIngredients(response.data.extendedIngredients);
       } catch (error) {
         console.error('Error fetching recipe:', error);
       }
@@ -63,15 +64,25 @@ export default function RecipeView() {
     <div className='recipe-card-view'>
       {recipe && (
         <>
-          <h1>{recipe.title}</h1> 
-          <img src={recipe.image} alt={recipe.title} /> 
+          <h1>{recipe.title}</h1>
+          <img src={recipe.image} alt={recipe.title} />
 
-          <h4>Instructions:</h4>
+          <h5>Instructions:</h5>
           <p>{stripHtmlTags(recipe.instructions)}</p>
+
+          <h5>Ingredients:</h5>
+          <ul>
+            {ingredients.map((ingredient) => (
+              <li key={ingredient.id}>
+                {ingredient.original}
+              </li>
+            ))}
+          </ul>
+
           <p>Ready in: {recipe.readyInMinutes} minutes</p>
           <p>Servings: {recipe.servings}</p>
           <p>Dietary Requirements: {formatDiets(recipe.diets)}.</p>
-          
+
           <div className="button-container">
             {isAuthenticated() ? (
               <button

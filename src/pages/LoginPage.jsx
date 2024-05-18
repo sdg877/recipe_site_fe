@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SignUpForm from '../components/SignUpForm';
 import LoginForm from '../components/LoginForm';
 import { Navigate } from 'react-router-dom'; 
+import Layout from '../components/Layout';
 
 export default function LoginPage() {
   const [user, setUser] = useState(null);
@@ -12,6 +13,7 @@ export default function LoginPage() {
   };
 
   return (
+    <Layout>
     <main>
       {user ? (
         <Navigate to="/profile" />
@@ -31,5 +33,6 @@ export default function LoginPage() {
         </>
       )}
     </main>
+    </Layout>
   );
 }

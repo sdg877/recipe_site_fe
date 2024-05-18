@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import Layout from '../components/Layout';
 
 export default function RecipeView() {
   const [recipe, setRecipe] = useState(null);
@@ -61,6 +62,7 @@ export default function RecipeView() {
   };
 
   return (
+    <Layout>
     <div className='recipe-card-view'>
       {recipe && (
         <>
@@ -101,5 +103,6 @@ export default function RecipeView() {
         </>
       )}
     </div>
+    </Layout>
   );
 }

@@ -1,6 +1,7 @@
 // import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 // import { Link } from 'react-router-dom';
+// import Layout from '../components/Layout';
 
 // export default function HomePage() {
 //     const [recipes, setRecipes] = useState([]);
@@ -46,11 +47,11 @@
 //     };
 
 //     return (
+//         <Layout>
 //         <div>
-//             <h1>Recipes</h1>
-//             <div>
+//             <div className="filter-search-container">
 //                 <select value={filter} onChange={handleFilterChange}>
-//                     <option value="">All</option>
+//                     <option value="">All Recipes</option>
 //                     <option value="breakfast">Breakfast</option>
 //                     <option value="lunch">Lunch</option>
 //                     <option value="dinner">Dinner</option>
@@ -74,15 +75,17 @@
 //                 ))}
 //             </div>
 //         </div>
+//         </Layout>
 //     );
 // }
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Layout from '../components/Layout';
 
 export default function HomePage() {
-    const [recipes, setRecipes] = useState([]);
+    const [successfulRecipes, setSuccessfulRecipes] = useState([]);
     const [filter, setFilter] = useState(''); 
     const [searchQuery, setSearchQuery] = useState(''); 
 
@@ -107,7 +110,7 @@ export default function HomePage() {
                 }
 
                 const response = await axios.get("https://api.spoonacular.com/recipes/complexSearch", { params });
-                setRecipes(response.data.results); 
+                setSuccessfulRecipes(response.data.results); // Initially, assume all recipes have successful images
             } catch (error) {
                 console.error('Error fetching recipes:', error);
             }
@@ -124,12 +127,16 @@ export default function HomePage() {
         setSearchQuery(event.target.value); 
     };
 
+    const handleImageError = (recipeId) => {
+        setSuccessfulRecipes(prevRecipes => prevRecipes.filter(recipe => recipe.id !== recipeId));
+    };
+
     return (
+        <Layout>
         <div>
-            <h1>Recipes</h1>
             <div className="filter-search-container">
                 <select value={filter} onChange={handleFilterChange}>
-                    <option value="">All</option>
+                    <option value="">All Recipes</option>
                     <option value="breakfast">Breakfast</option>
                     <option value="lunch">Lunch</option>
                     <option value="dinner">Dinner</option>
@@ -143,15 +150,21 @@ export default function HomePage() {
                 />
             </div>
             <div>
-                {recipes.map(recipe => (
+                {successfulRecipes.map(recipe => (
                     <div className='recipe-card' key={recipe.id}>
                         <Link to={`/recipes/${recipe.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                             <h2>{recipe.title}</h2>
                         </Link>
-                        <img src={recipe.image} alt={recipe.title} />
+                        <img 
+                            src={recipe.image} 
+                            alt={recipe.title} 
+                            onError={() => handleImageError(recipe.id)} // Handle image error
+                        />
                     </div>
                 ))}
             </div>
         </div>
+        </Layout>
     );
 }
+

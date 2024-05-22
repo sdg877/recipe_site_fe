@@ -37,7 +37,6 @@ function SignUpForm() {
 
   const disable = formData.password !== formData.confirm;
 
-
   return (
     <div>
       <div className="container-mt-5">
@@ -100,7 +99,7 @@ function SignUpForm() {
           </div>
           <div className="mb-3 row justify-content-center">
             <div className="col-sm-6">
-              <button type="submit" className="btn btn-primary" disabled={disable}>SIGN UP</button>
+              <button type="submit" className="btn" disabled={disable}>SIGN UP</button>
             </div>
           </div>
         </form>

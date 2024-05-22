@@ -63,46 +63,46 @@ export default function RecipeView() {
 
   return (
     <Layout>
-    <div className='recipe-card-view'>
-      {recipe && (
-        <>
-          <h1>{recipe.title}</h1>
-          <img src={recipe.image} alt={recipe.title} />
+      <div className='recipe-card-view'>
+        {recipe && (
+          <>
+            <h1>{recipe.title}</h1>
+            <img src={recipe.image} alt={recipe.title} />
 
-          <h5>Instructions:</h5>
-          <p>{stripHtmlTags(recipe.instructions)}</p>
+            <h5>Instructions:</h5>
+            <p>{stripHtmlTags(recipe.instructions)}</p>
 
-          <h5>Ingredients:</h5>
-          <ul>
-            {ingredients.map((ingredient) => (
-              <li key={ingredient.id}>
-                {ingredient.original}
-              </li>
-            ))}
-          </ul>
+            <h5>Ingredients:</h5>
+            <ul>
+              {ingredients.map((ingredient) => (
+                <li key={ingredient.id}>
+                  {ingredient.original}
+                </li>
+              ))}
+            </ul>
 
-          <p>Ready in: {recipe.readyInMinutes} minutes</p>
-          <p>Servings: {recipe.servings}</p>
-          <p>Dietary Requirements: {formatDiets(recipe.diets)}.</p>
+            <p>Ready in: {recipe.readyInMinutes} minutes</p>
+            <p>Servings: {recipe.servings}</p>
+            <p>Dietary Requirements: {formatDiets(recipe.diets)}.</p>
 
-          <div className="button-container">
-            {isAuthenticated() ? (
-              <button
-                onClick={handleSaveRecipe}
-                disabled={saved}
-                className="btn btn-primary"
-              >
-                {saved ? "Recipe Saved" : "Save Recipe"}
-              </button>
-            ) : (
-              <Link to="/profile" className="btn btn-primary">
-                Save Recipe
-              </Link>
-            )}
-          </div>
-        </>
-      )}
-    </div>
+            <div className="button-container">
+              {isAuthenticated() ? (
+                <button
+                  onClick={handleSaveRecipe}
+                  disabled={saved}
+                  className="btn btn-primary"
+                >
+                  {saved ? "Recipe Saved" : "Save Recipe"}
+                </button>
+              ) : (
+                <Link to="/profile" className="btn btn-primary">
+                  Save Recipe
+                </Link>
+              )}
+            </div>
+          </>
+        )}
+      </div>
     </Layout>
   );
 }

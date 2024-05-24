@@ -1,7 +1,7 @@
 // src/components/Layout.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './logo.png'; // Adjust the path as necessary
+import logo from './logo.png'; 
 
 const Layout = ({ children }) => {
   return (

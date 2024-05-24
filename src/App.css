@@ -96,8 +96,8 @@ h1, h2, h4 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 10px;
-  margin: 5px;  /* Reduced margin */
-  width: calc(20% - 20px); /* Adjusted width */
+  margin: 5px;  
+  width: calc(20% - 20px); 
   height: 200px;
   box-sizing: border-box;
   display: flex;

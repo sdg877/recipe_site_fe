@@ -38,7 +38,7 @@ export default function RecipeView() {
 
   useEffect(() => {
     const savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
-    const isSaved = savedRecipes.some((savedRecipe) => savedRecipe.id === recipe?.id); // Use optional chaining
+    const isSaved = savedRecipes.some((savedRecipe) => savedRecipe.id === recipe?.id); 
     setSaved(isSaved);
   }, [recipe]);
 
@@ -62,47 +62,36 @@ export default function RecipeView() {
   };
 
   return (
-    <Layout>
-      <div className='recipe-card-view'>
-        {recipe && (
-          <>
-            <h1>{recipe.title}</h1>
-            <img src={recipe.image} alt={recipe.title} />
+<Layout>
+  <div className='recipe-card-view'>
+    {recipe && (
+      <>
+        <h1>{recipe.title}</h1>
+        <img src={recipe.image} alt={recipe.title} />
+        <h5>Instructions:</h5>
+        <p>{stripHtmlTags(recipe.instructions)}</p>
+        <h5>Ingredients:</h5>
+        <ul>
+          {ingredients.map((ingredient) => (
+            <li key={ingredient.id}>{ingredient.original}</li>
+          ))}
+        </ul>
+        <p>Ready in: {recipe.readyInMinutes} minutes</p>
+        <p>Servings: {recipe.servings}</p>
+        <p>Dietary Requirements: {formatDiets(recipe.diets)}.</p>
+        <div className="button-container">
+          {isAuthenticated() ? (
+            <button onClick={handleSaveRecipe} disabled={saved} className="btn btn-primary">
+              {saved ? "Recipe Saved" : "Save Recipe"}
+            </button>
+          ) : (
+            <Link to="/profile" className="btn btn-primary">Save Recipe</Link>
+          )}
+        </div>
+      </>
+    )}
+  </div>
+</Layout>
 
-            <h5>Instructions:</h5>
-            <p>{stripHtmlTags(recipe.instructions)}</p>
-
-            <h5>Ingredients:</h5>
-            <ul>
-              {ingredients.map((ingredient) => (
-                <li key={ingredient.id}>
-                  {ingredient.original}
-                </li>
-              ))}
-            </ul>
-
-            <p>Ready in: {recipe.readyInMinutes} minutes</p>
-            <p>Servings: {recipe.servings}</p>
-            <p>Dietary Requirements: {formatDiets(recipe.diets)}.</p>
-
-            <div className="button-container">
-              {isAuthenticated() ? (
-                <button
-                  onClick={handleSaveRecipe}
-                  disabled={saved}
-                  className="btn btn-primary"
-                >
-                  {saved ? "Recipe Saved" : "Save Recipe"}
-                </button>
-              ) : (
-                <Link to="/profile" className="btn btn-primary">
-                  Save Recipe
-                </Link>
-              )}
-            </div>
-          </>
-        )}
-      </div>
-    </Layout>
   );
 }

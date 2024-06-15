@@ -3,14 +3,19 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body {
+  padding: 20px; /* Set margin around the edge of the page */
+  box-sizing: border-box; /* Include padding in the body's width */
+}
+
 /* Recipe Card Styling */
 .recipe-card {
   background-color: darkseagreen;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 20px;
-  margin: 10px;
-  width: calc(25% - 40px);
+  margin: 10px; /* Adjust margin as needed */
+  width: calc(25% - 100px); /* Adjusted width */
   height: 200px;
   box-sizing: border-box;
   display: flex;
@@ -39,18 +44,13 @@
 
 @media screen and (max-width: 768px) {
   .recipe-card {
-    width: 100%;
-    height: auto;
+    width: calc(50% - 20px); /* Adjusted width for smaller screens */
   }
+}
 
-  .recipe-card img {
-    height: 100%;
-    margin: 20px 0;
-    max-height: none;
-  }
-
-  .recipe-card h2 {
-    height: auto;
+@media screen and (max-width: 480px) {
+  .recipe-card {
+    width: calc(100% - 20px); /* Adjusted width for small screens */
   }
 }
 
@@ -58,7 +58,8 @@
 .recipe-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center; /* Center the cards horizontally */
+  gap: 20px; /* Adjust the gap between cards */
 }
 
 /* List Styling */
@@ -279,3 +280,4 @@ button:hover {
 .button-container .btn:hover {
   background-color: #2f4f4f;
 }
+

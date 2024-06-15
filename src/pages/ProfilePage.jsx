@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getUser, logOut } from "../utilities/users-service.js";
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../App.css'; 
 import Layout from '../components/Layout';
 

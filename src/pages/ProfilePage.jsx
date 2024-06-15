@@ -34,6 +34,10 @@ export default function ProfilePage() {
         localStorage.setItem("savedRecipes", JSON.stringify(updatedRecipes));
     };
 
+    if (!user) {
+        return <Redirect to="/" />;
+    }
+
     const handleDropdownChange = (event, recipeId) => {
         const updatedRecipes = savedRecipes.map(recipe => {
             if (recipe.id === recipeId) {

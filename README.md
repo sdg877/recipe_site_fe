@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+Description
+I decided to build a MERN stack recipe site using an external API. I wanted users to be able to filter, search, and save recipes. This was my first full-stack website built without any assistance.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Timeframe
+This site took me 45 hours to build including planning and deployment. I built this site alone.
 
-## Available Scripts
+Technologies used:
+MongoDB
+Express
+React
+Node
+Bootstrap
 
-In the project directory, you can run:
+Frontend Deployment Link
+Backend Deployment Link
+Github Frontend Link
+Github Backend Link
 
-### `npm start`
+Brief
+I decided to build a MERN stack site to showcase the skills that I learned during my engineering bootcamp. This was my first solo project using an external API. I wanted the site to be user-friendly and for the user to be able to save recipes and to be able to mark whether they would make again. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Planning
+I made a list of all the features that I wanted to include on the site. I wanted users to be able to search and filter recipes, to be able to save recipes to their profile if they have an account, and for them to be able to mark the recipe once they had tried it. Once I had decided on the user story, I made a list of all the pages and components I would need. I chose an external API and set up an account. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Code Process
+I started by setting up backend and frontend environments and installing relevant dependencies. I installed Mongoose and connected my backend in my server.js file. 
 
-### `npm test`
+After I defined my user schema, I then added a checkToken.js, database.js and ensureLoggedIn.js files.
+![Screenshot 2024-05-24 at 11 59 08](https://github.com/sdg877/recipe_site_fe/assets/149600602/af79af6f-6aca-44b0-9976-b77111fab982)
+![Screenshot 2024-05-24 at 11 56 53](https://github.com/sdg877/recipe_site_fe/assets/149600602/07a6515d-87f2-4ca6-b71e-a4df2bb478d1)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the frontend, I created a utilities folder and send-request.js, users-api.js and users-service.js files.
+send-request.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+users-api.js
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Snippet of user-service.js file
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+I then created sign-up and login form components and created a login page and endpoints so that the user could toggle between the forms depending on whether they have an account setup already.I then redirected the user to the profile page once they had logged in or signed up.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Once the authorization was complete, I then moved on to setting up the API to source the recipes. I tested out a couple of recipe API’s before deciding the Spoonacular was the best one. I created an API key and saved it in my .env file on the frontend and created a useEffect hook.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+Once I was able to view the recipes on my homepage, I created a RecipeView.jsx page which allows the users to view the recipe in detail. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+I noticed that recipes without images were still displaying ion my list which affected the styling and layout so I added a function that would only allow recipes with image to be displayed on my site.
 
-### Advanced Configuration
+I wanted logged in users to be able to save recipes to their profile using local storage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+I then pulled the data I wanted displayed onto the recipe card:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+I then added these two functions as I noticed that there were formatting errors with the data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+I then used local storage so that users were able to save recipes to their profile once logged in. 
+
+
+
+I also wanted users to be able to mark the recipes with whether they had tried and if they would try again, i created a dropdown menu for this.
+
+
+
+Challenges
+This was my first complicated site built without any help from instructors and using an external API. There were points when setting up authentication and using the APi that I struggled but I did a lot of online research and looking at old projects and was able to overcome any issues that I had. 
+
+Wins
+That i was able to build this site from scratch and deploy it without any outside help. I thoroughly enjoyed this project.
+
+Key learnings
+To be patient if sometyhing isn’t working and that everything can be resolved with proper research and practice.

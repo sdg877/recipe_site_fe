@@ -16,12 +16,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import '../App.css'; 
+import { getUser } from '../auth/auth'; // Import getUser function
 
-export default function NavBar({ isLoggedIn }) {
+export default function NavBar() {
+  // Check if user is logged in
+  const isLoggedIn = !!getUser();
+
   return (
     <nav className="navbar">
       <div>
         <NavLink to="/">Recipes</NavLink> &nbsp;
+        {/* Conditionally render Profile or Login based on isLoggedIn */}
         {isLoggedIn ? (
           <NavLink to="/profile">Profile</NavLink>
         ) : (
@@ -32,4 +37,5 @@ export default function NavBar({ isLoggedIn }) {
     </nav>
   );
 }
+
 

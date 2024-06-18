@@ -21,7 +21,7 @@ export default function NavBar({ isLoggedIn }) {
   return (
     <nav className="navbar">
       <div>
-        <NavLink to="/recipes">Recipes</NavLink> &nbsp;
+        <NavLink to="/">Recipes</NavLink> &nbsp;
         {isLoggedIn ? (
           <NavLink to="/profile">Profile</NavLink>
         ) : (

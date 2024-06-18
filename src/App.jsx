@@ -107,6 +107,47 @@
 
 // export default App;
 
+// import React, { useState } from 'react';
+// import { Routes, Route } from 'react-router-dom';
+// import './App.css';
+// import LoginPage from './pages/LoginPage.jsx';
+// import ProfilePage from './pages/ProfilePage.jsx';
+// import HomePage from '../src/pages/HomePage.jsx';
+// import NavBar from './components/NavBar.jsx';
+// import RecipeView from './pages/RecipeView.jsx';
+// import { getUser } from './utilities/users-service'; // Updated import path
+
+// function App() {
+//   // Manage authentication state
+//   const [isLoggedIn, setIsLoggedIn] = useState(!!getUser());
+
+//   // Function to handle login
+//   const handleLogin = () => {
+//     setIsLoggedIn(true); // Update isLoggedIn state
+//   };
+
+//   // Function to handle logout (if needed)
+//   // const handleLogout = () => {
+//   //   setIsLoggedIn(false); // Update isLoggedIn state
+//   // };
+
+//   return (
+//     <div className='App'>
+//       {/* Pass isLoggedIn to NavBar */}
+//       <NavBar isLoggedIn={isLoggedIn} />
+//       <Routes>
+//         {/* Pass handleLogin to LoginPage */}
+//         <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+//         <Route path="/profile" element={<ProfilePage />} />
+//         <Route path="/recipes/:id" element={<RecipeView />} />
+//         <Route path="/" element={<HomePage />} />
+//       </Routes>
+//     </div>
+//   );
+// }
+
+// export default App;
+
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
@@ -115,7 +156,7 @@ import ProfilePage from './pages/ProfilePage.jsx';
 import HomePage from '../src/pages/HomePage.jsx';
 import NavBar from './components/NavBar.jsx';
 import RecipeView from './pages/RecipeView.jsx';
-import { getUser } from './utilities/users-service'; // Updated import path
+import { getUser, login } from './utilities/users-service'; // import getUser and login
 
 function App() {
   // Manage authentication state
@@ -126,14 +167,9 @@ function App() {
     setIsLoggedIn(true); // Update isLoggedIn state
   };
 
-  // Function to handle logout (if needed)
-  // const handleLogout = () => {
-  //   setIsLoggedIn(false); // Update isLoggedIn state
-  // };
-
   return (
     <div className='App'>
-      {/* Pass isLoggedIn to NavBar */}
+      {/* Pass isLoggedIn and handleLogin to NavBar */}
       <NavBar isLoggedIn={isLoggedIn} />
       <Routes>
         {/* Pass handleLogin to LoginPage */}
@@ -147,3 +183,4 @@ function App() {
 }
 
 export default App;
+

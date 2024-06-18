@@ -16,7 +16,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import '../App.css'; 
-import { getUser } from '../auth/auth'; // Import getUser function
+import { getUser } from '../utilities/users-service'
 
 export default function NavBar() {
   // Check if user is logged in

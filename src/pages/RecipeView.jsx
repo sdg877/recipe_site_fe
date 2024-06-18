@@ -85,7 +85,7 @@ export default function RecipeView() {
               {saved ? "Recipe Saved" : "Save Recipe"}
             </button>
           ) : (
-            <Link to="/profile" className="btn btn-primary">Save Recipe</Link>
+            <Link to="/login" className="btn btn-primary">Save Recipe</Link>
           )}
         </div>
       </>

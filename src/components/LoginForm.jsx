@@ -18,8 +18,6 @@ export default function LoginForm({ setUser }) {
     try {
       const { user, token } = await usersService.login(credentials);
       localStorage.setItem('token', token);
-      console.log('User:', user);
-      console.log('User ID:', user._id);
       setUser(user);
     } catch {
       setError('Log In Failed - Try Again');

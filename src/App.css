@@ -52,6 +52,10 @@ body {
   .recipe-card {
     width: calc(50% - 20px); 
   }
+
+  .recipe-card-view img {
+    width: 70%; 
+  }
 }
 
 /* Recipe Container Styling */
@@ -89,7 +93,7 @@ h1, h2, h4 {
 .recipe-card-view img {
   padding: 15px;
   border-radius: 8px;
-  width: calc(50% - 20px); 
+  width: 100%;
 }
 
 /* Recipe Card Profile Styling */
@@ -149,6 +153,10 @@ h1, h2, h4 {
 
   .recipe-card-profile h2 {
     font-size: 14px;
+  }
+
+  .recipe-card-view img {
+    width: 80%; 
   }
 }
 

@@ -4,8 +4,8 @@
 }
 
 body {
-  padding: 20px; /* Set margin around the edge of the page */
-  box-sizing: border-box; /* Include padding in the body's width */
+  padding: 20px; 
+  box-sizing: border-box; 
 }
 
 /* Recipe Card Styling */
@@ -14,8 +14,8 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 20px;
-  margin: 10px; /* Adjust margin as needed */
-  width: calc(25% - 100px); /* Adjusted width */
+  margin: 10px; 
+  width: calc(25% - 100px); 
   height: 200px;
   box-sizing: border-box;
   display: flex;

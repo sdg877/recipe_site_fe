@@ -130,9 +130,8 @@ export default function ProfilePage() {
     };
 
     if (!user) {
-        // Redirect to login page if user is not logged in
         window.location.href = "/";
-        return null; // Return null to avoid rendering anything
+        return null;
     }
 
     return (

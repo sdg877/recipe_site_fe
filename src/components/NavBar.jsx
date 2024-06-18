@@ -50,16 +50,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import '../App.css'; 
 
-export default function NavBar({ isLoggedIn, onLogout }) {
+export default function NavBar({ isLoggedIn }) {
   return (
     <nav className="navbar">
       <div>
         <NavLink to="/">Recipes</NavLink> &nbsp;
         {isLoggedIn ? (
-          <>
-            <NavLink to="/profile">Profile</NavLink>
-            <button onClick={onLogout}>Logout</button> {/* Add logout button */}
-          </>
+          <NavLink to="/profile">Profile</NavLink>
         ) : (
           <NavLink to="/login">Login</NavLink>
         )}

@@ -22,7 +22,6 @@ export default function NavBar({ isLoggedIn }) {
     <nav className="navbar">
       <div>
         <NavLink to="/recipes">Recipes</NavLink> &nbsp;
-        {/* Conditionally render Profile or Login based on isLoggedIn */}
         {isLoggedIn ? (
           <NavLink to="/profile">Profile</NavLink>
         ) : (
@@ -33,3 +32,4 @@ export default function NavBar({ isLoggedIn }) {
     </nav>
   );
 }
+

@@ -23,7 +23,7 @@
 
 // export default App;
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import LoginPage from './pages/LoginPage.jsx';
@@ -33,14 +33,16 @@ import NavBar from './components/NavBar.jsx';
 import RecipeView from './pages/RecipeView.jsx';
 
 function App() {
+  // Manage authentication state
+  const [user, setUser] = useState(null);
+
   return (
     <div className='App'>
-      <NavBar />
+      <NavBar isLoggedIn={!!user} />
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage setUser={setUser} />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/recipes/:id" element={<RecipeView />} />
-        {/* This will be your homepage, showing recipes */}
         <Route path="/" element={<HomePage />} />
       </Routes>
     </div>
@@ -48,4 +50,5 @@ function App() {
 }
 
 export default App;
+
 

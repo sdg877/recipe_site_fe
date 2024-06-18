@@ -12,7 +12,7 @@ export default function HomePage() {
         const fetchRecipes = async () => {
             try {
                 let params = {
-                    number: 150, 
+                    number: 75, 
                     apiKey: process.env.REACT_APP_KEY
                 };
 

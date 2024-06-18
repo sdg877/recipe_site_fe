@@ -49,7 +49,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import '../App.css'; 
-import { getUser } from '../utilities/users-service'; // Updated import path
 
 export default function NavBar({ isLoggedIn, onLogout }) {
   return (

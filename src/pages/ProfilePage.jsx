@@ -106,6 +106,7 @@ export default function ProfilePage() {
 
   const handleLogout = () => {
     logOut();
+    // Perform navigation using Navigate component from react-router-dom
     return <Navigate to="/" />;
   };
 
@@ -130,6 +131,7 @@ export default function ProfilePage() {
   };
 
   if (!user) {
+    // Redirect to login page if user is not logged in
     return <Navigate to="/login" />;
   }
 
@@ -159,3 +161,4 @@ export default function ProfilePage() {
     </Layout>
   );
 }
+

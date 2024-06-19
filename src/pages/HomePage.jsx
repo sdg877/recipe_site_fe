@@ -73,16 +73,20 @@ export default function HomePage() {
                     <div className='recipe-card' key={recipe.id}>
                         <Link to={`/recipes/${recipe.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                             <h2>{recipe.title}</h2>
-                        </Link>
+                        
                         <img 
                             src={recipe.image} 
                             alt={recipe.title} 
                             onError={() => handleImageError(recipe.id)} 
                         />
+                        </Link>
                     </div>
+                    
                 ))}
             </div>
         </div>
         </Layout>
     );
 }
+
+

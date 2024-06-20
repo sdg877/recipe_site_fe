@@ -205,7 +205,7 @@ button:hover,
 
   .recipe-card img {
     width: 100%; 
-    padding: 10px; 
+    padding: 8px; 
   }
 
 
@@ -224,7 +224,7 @@ button:hover,
   }
 
   .recipe-card-view img {
-    width: 80%; 
+    width: 100%; 
   }
 }
 

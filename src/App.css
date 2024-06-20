@@ -219,6 +219,7 @@ button:hover,
   .recipe-card {
     width: calc(70% - 40px);
     font-size: 12px; 
+  }
 
   .recipe-card h2 {
     -webkit-line-clamp: 2; 

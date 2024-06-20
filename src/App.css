@@ -223,7 +223,7 @@ button:hover,
   }
 
   .recipe-card-view img {
-    width: 80%; 
+    width: auto; 
   }
 }
 

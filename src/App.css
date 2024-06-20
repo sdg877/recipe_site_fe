@@ -195,6 +195,11 @@ button:hover,
     width: 100%;
   }
 
+  .recipe-card h2 {
+    white-space: normal; 
+    font-size: 10px; 
+  }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -217,10 +222,6 @@ button:hover,
   .recipe-card-profile button {
     font-size: 12px;
     padding: 5px;
-  }
-
-  .recipe-card-profile h2 {
-    font-size: 14px;
   }
 
   .recipe-card-view img {

@@ -204,7 +204,7 @@ button:hover,
 
 @media screen and (max-width: 480px) {
   .recipe-card {
-    width: calc(70% - 20px); 
+    width: calc(70% - 40px); 
     font-size: 10px;
     padding: 10px;
   }

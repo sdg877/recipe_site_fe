@@ -26,6 +26,7 @@ Code Process
 I started by setting up backend and frontend environments and installing relevant dependencies. I installed Mongoose and connected my backend in my server.js file. 
 
 After I defined my user schema, I then added a checkToken.js, database.js and ensureLoggedIn.js files.
+
 ![Screenshot 2024-05-24 at 11 59 08](https://github.com/sdg877/recipe_site_fe/assets/149600602/af79af6f-6aca-44b0-9976-b77111fab982)
 ![Screenshot 2024-05-24 at 11 56 53](https://github.com/sdg877/recipe_site_fe/assets/149600602/07a6515d-87f2-4ca6-b71e-a4df2bb478d1)
 
@@ -33,13 +34,16 @@ After I defined my user schema, I then added a checkToken.js, database.js and en
 
 In the frontend, I created a utilities folder and send-request.js, users-api.js and users-service.js files.
 send-request.js
+
 ![Screenshot 2024-05-24 at 12 02 21](https://github.com/sdg877/recipe_site_fe/assets/149600602/1f6af299-d0df-4c22-95e6-23d8065e7e87)
 
 
 users-api.js
+
 ![Screenshot 2024-05-24 at 12 03 21](https://github.com/sdg877/recipe_site_fe/assets/149600602/890e6544-c4cd-41c6-8849-b8b1fed22e81)
 
 Snippet of user-service.js file
+
 ![Login function](https://github.com/sdg877/recipe_site_fe/assets/149600602/b2cdcf22-d778-474c-bd9f-1d3f981405c3)
 
 
@@ -47,7 +51,7 @@ I created sign-up and login form components and a login page and endpoints. I ad
 ![Screenshot 2024-06-26 at 11 26 40](https://github.com/sdg877/recipe_site_fe/assets/149600602/36b7d3c7-bd95-4ec1-9ea0-7302bf0cc3cb)
 
 
-Once the authorization was complete, I then moved on to setting up the API to source the recipes. I tested out a couple of recipe API’s before deciding the Spoonacular was the best one. I created an API key and saved it in my .env file on the frontend and created a useEffect hook. I noticed that some of the recipes did not have images and this threw off the formatting so I made a function to not display any recipes that do not have images. I created a filter and search so that the user can filter between meal type and search by specific ingredients.
+Once the authorization was complete, I then moved on to setting up the API to source the recipes. I tested out a couple of recipe API’s before deciding the Spoonacular was the best one. I created an API key and saved it in my .env file on the frontend and created a useEffect hook. I noticed that some of the recipes did not have images and this threw off the formatting so I made a function to not display any recipes that do not have images. I created a filter and search so that the user can filter between meal types and search by specific ingredients.
 ![Screenshot 2024-06-26 at 11 29 34](https://github.com/sdg877/recipe_site_fe/assets/149600602/2a68d792-4bca-497d-bbda-a849ee0c8ecc)
 ![Screenshot 2024-06-26 at 11 31 48](https://github.com/sdg877/recipe_site_fe/assets/149600602/e5b90066-bfad-499c-b259-f1934ff8dc47)
 ![Screenshot 2024-06-26 at 11 33 24](https://github.com/sdg877/recipe_site_fe/assets/149600602/092aa507-655e-4ada-8ff3-a4343012d02c)

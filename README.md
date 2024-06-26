@@ -33,51 +33,55 @@ After I defined my user schema, I then added a checkToken.js, database.js and en
 
 In the frontend, I created a utilities folder and send-request.js, users-api.js and users-service.js files.
 send-request.js
+![Screenshot 2024-05-24 at 12 02 21](https://github.com/sdg877/recipe_site_fe/assets/149600602/1f6af299-d0df-4c22-95e6-23d8065e7e87)
 
 
 users-api.js
-
+![Screenshot 2024-05-24 at 12 03 21](https://github.com/sdg877/recipe_site_fe/assets/149600602/890e6544-c4cd-41c6-8849-b8b1fed22e81)
 
 Snippet of user-service.js file
+![Login function](https://github.com/sdg877/recipe_site_fe/assets/149600602/b2cdcf22-d778-474c-bd9f-1d3f981405c3)
 
 
-I then created sign-up and login form components and created a login page and endpoints so that the user could toggle between the forms depending on whether they have an account setup already.I then redirected the user to the profile page once they had logged in or signed up.
+I created sign-up and login form components and a login page and endpoints. I added a function so that the user could toggle between the forms depending on whether they have an account setup already. I then redirected the user to the profile page once they had logged in or signed up.
+![Screenshot 2024-06-26 at 11 26 40](https://github.com/sdg877/recipe_site_fe/assets/149600602/36b7d3c7-bd95-4ec1-9ea0-7302bf0cc3cb)
 
 
-
-
-Once the authorization was complete, I then moved on to setting up the API to source the recipes. I tested out a couple of recipe API’s before deciding the Spoonacular was the best one. I created an API key and saved it in my .env file on the frontend and created a useEffect hook.
-
+Once the authorization was complete, I then moved on to setting up the API to source the recipes. I tested out a couple of recipe API’s before deciding the Spoonacular was the best one. I created an API key and saved it in my .env file on the frontend and created a useEffect hook. I noticed that some of the recipes did not have images and this threw off the formatting so I made a function to not display any recipes that do not have images. I created a filter and search so that the user can filter between meal type and search by specific ingredients.
+![Screenshot 2024-06-26 at 11 29 34](https://github.com/sdg877/recipe_site_fe/assets/149600602/2a68d792-4bca-497d-bbda-a849ee0c8ecc)
+![Screenshot 2024-06-26 at 11 31 48](https://github.com/sdg877/recipe_site_fe/assets/149600602/e5b90066-bfad-499c-b259-f1934ff8dc47)
+![Screenshot 2024-06-26 at 11 33 24](https://github.com/sdg877/recipe_site_fe/assets/149600602/092aa507-655e-4ada-8ff3-a4343012d02c)
+![Screenshot 2024-06-26 at 11 35 59](https://github.com/sdg877/recipe_site_fe/assets/149600602/c42257dd-0ee5-4869-b0f1-b4ab5e2da801)
 
 
 Once I was able to view the recipes on my homepage, I created a RecipeView.jsx page which allows the users to view the recipe in detail. 
+![Screenshot 2024-06-26 at 11 37 08](https://github.com/sdg877/recipe_site_fe/assets/149600602/e6769015-0a09-4515-a622-326e135f8f84)
 
-
-
-I noticed that recipes without images were still displaying ion my list which affected the styling and layout so I added a function that would only allow recipes with image to be displayed on my site.
 
 I wanted logged in users to be able to save recipes to their profile using local storage.
+![useEffect - save recipe](https://github.com/sdg877/recipe_site_fe/assets/149600602/1f62daab-6f19-4147-bc51-c51d07e8206a)
 
 
-I then pulled the data I wanted displayed onto the recipe card:
+I pulled the data I wanted displayed onto the recipe card:
+
+![Screenshot 2024-06-26 at 11 39 34](https://github.com/sdg877/recipe_site_fe/assets/149600602/deb59f70-d519-4e70-b703-8e31ec91c27b)
+
+I then added two functions as I noticed that there were formatting errors with the data.
+![Screenshot 2024-06-26 at 11 41 03](https://github.com/sdg877/recipe_site_fe/assets/149600602/8afaeec5-3d82-4e2a-a02e-48ceb3c1aed8)
 
 
-I then added these two functions as I noticed that there were formatting errors with the data.
-
-
-I then used local storage so that users were able to save recipes to their profile once logged in. 
-
-
-
-I also wanted users to be able to mark the recipes with whether they had tried and if they would try again, i created a dropdown menu for this.
-
+I used local storage so that users were able to save recipes to their profile once logged in. 
+![useEffect - save recipe](https://github.com/sdg877/recipe_site_fe/assets/149600602/944a69b7-551b-4815-a1aa-2672c6447c5b)
 
 
 Challenges
-This was my first complicated site built without any help from instructors and using an external API. There were points when setting up authentication and using the APi that I struggled but I did a lot of online research and looking at old projects and was able to overcome any issues that I had. 
+This was my first full stack site built without any help from instructors and using an external API. There were points when setting up authentication and using the API that I struggled. I did a lot of online research and looked at previous projects which enabled me to overcome any issues that I was facing. 
+
+Once I had deployed the site, I found that if the user refreshed the page on any page other than the homepage, they would get a 404 error saying page not found. I fixed this by adding the following page in the public folder in the frontend.
+![Screenshot 2024-05-24 at 12 21 36](https://github.com/sdg877/recipe_site_fe/assets/149600602/5d6c9a8d-ed8c-4c51-93c1-638e45abb697)
 
 Wins
-That i was able to build this site from scratch and deploy it without any outside help. I thoroughly enjoyed this project.
+That I was able to build this site from scratch and deploy it without any outside help. I thoroughly enjoyed this project.
 
 Key learnings
-To be patient if sometyhing isn’t working and that everything can be resolved with proper research and practice.
+To be patient, if something isn’t working and that everything can be resolved with proper research and practice.

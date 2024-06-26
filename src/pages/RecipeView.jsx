@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../components/Layout';
 
@@ -8,6 +8,7 @@ export default function RecipeView() {
   const [ingredients, setIngredients] = useState([]);
   const [saved, setSaved] = useState(false);
   const { id } = useParams();
+  const location = useLocation();
 
   const isAuthenticated = () => {
     const token = localStorage.getItem('token');
@@ -87,7 +88,13 @@ export default function RecipeView() {
                   {saved ? "Recipe Saved" : "Save Recipe"}
                 </button>
               ) : (
-                <Link to="/login" className="btn btn-primary">Save Recipe</Link>
+                <Link 
+                  to="/login" 
+                  state={{ from: location }} 
+                  className="btn btn-primary"
+                >
+                  Save Recipe
+                </Link>
               )}
             </div>
           </>

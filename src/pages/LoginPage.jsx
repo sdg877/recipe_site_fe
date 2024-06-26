@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 import SignUpForm from '../components/SignUpForm';
 import LoginForm from '../components/LoginForm';
-import { Navigate } from 'react-router-dom';
 import Layout from '../components/Layout';
+import '../App.css'; 
 
 export default function LoginPage() {
   const [user, setUser] = useState(null);
   const [showLoginForm, setShowLoginForm] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/profile";
+
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, from, navigate]);
 
   const toggleForm = () => {
     setShowLoginForm(prevState => !prevState);
@@ -16,18 +27,22 @@ export default function LoginPage() {
     <Layout>
       <main>
         {user ? (
-          <Navigate to="/profile" />
+          <Navigate to={from} replace />
         ) : (
           <>
             {showLoginForm ? (
               <>
-                <SignUpForm setUser={setUser} />
-                <p><button onClick={toggleForm}>Have an account? <br /> LOGIN</button></p>
+                <LoginForm setUser={setUser} />
+                <div className="btn-container">
+                  <p><button onClick={toggleForm} className="btn-spacing">No account? SIGN UP</button></p>
+                </div>
               </>
             ) : (
               <>
-                <LoginForm setUser={setUser} />
-                <p><button onClick={toggleForm}>No account? <br /> SIGN UP</button></p>
+                <SignUpForm setUser={setUser} />
+                <div className="btn-container">
+                  <p><button onClick={toggleForm} className="btn-spacing">Have an account? LOGIN</button></p>
+                </div>
               </>
             )}
           </>

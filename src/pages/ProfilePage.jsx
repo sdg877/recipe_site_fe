@@ -55,6 +55,7 @@ export default function ProfilePage() {
   };
 
   if (!user) {
+    // Return null or a loading spinner while the useEffect redirects the user
     return null;
   }
 

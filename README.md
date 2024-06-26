@@ -48,6 +48,7 @@ Snippet of user-service.js file
 
 
 I created sign-up and login form components and a login page and endpoints. I added a function so that the user could toggle between the forms depending on whether they have an account setup already. I then redirected the user to the profile page once they had logged in or signed up.
+
 ![Screenshot 2024-06-26 at 11 26 40](https://github.com/sdg877/recipe_site_fe/assets/149600602/36b7d3c7-bd95-4ec1-9ea0-7302bf0cc3cb)
 
 

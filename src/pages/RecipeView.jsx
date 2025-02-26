@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
-import axios from 'axios';
-import Layout from '../components/Layout';
+import React, { useState, useEffect } from "react";
+import { useParams, Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import Layout from "../components/Layout";
 
 export default function RecipeView() {
   const [recipe, setRecipe] = useState(null);
@@ -11,7 +11,7 @@ export default function RecipeView() {
   const location = useLocation();
 
   const isAuthenticated = () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     return !!token;
   };
 
@@ -22,14 +22,14 @@ export default function RecipeView() {
           `https://api.spoonacular.com/recipes/${id}/information`,
           {
             params: {
-              apiKey: process.env.REACT_APP_KEY
-            }
+              apiKey: process.env.REACT_APP_KEY,
+            },
           }
         );
         setRecipe(response.data);
         setIngredients(response.data.extendedIngredients);
       } catch (error) {
-        console.error('Error fetching recipe:', error);
+        console.error("Error fetching recipe:", error);
       }
     };
 
@@ -38,24 +38,27 @@ export default function RecipeView() {
 
   useEffect(() => {
     const savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
-    const isSaved = savedRecipes.some((savedRecipe) => savedRecipe.id === recipe?.id); 
+    const isSaved = savedRecipes.some(
+      (savedRecipe) => savedRecipe.id === recipe?.id
+    );
     setSaved(isSaved);
   }, [recipe]);
 
   const stripHtmlTags = (html) => {
-    return html.replace(/<[^>]*>?/gm, '');
+    return html.replace(/<[^>]*>?/gm, "");
   };
 
   const capitalizeEachWord = (text) => {
-    return text.replace(/\b\w/g, char => char.toUpperCase());
+    return text.replace(/\b\w/g, (char) => char.toUpperCase());
   };
 
   const formatDiets = (diets) => {
-    return diets.map(capitalizeEachWord).join(', ');
+    return diets.map(capitalizeEachWord).join(", ");
   };
 
   const handleSaveRecipe = () => {
-    const existingRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+    const existingRecipes =
+      JSON.parse(localStorage.getItem("savedRecipes")) || [];
     const updatedRecipes = [...existingRecipes, recipe];
     localStorage.setItem("savedRecipes", JSON.stringify(updatedRecipes));
     setSaved(true);
@@ -63,7 +66,7 @@ export default function RecipeView() {
 
   return (
     <Layout>
-      <div className='recipe-card-view'>
+      <div className="recipe-card-view">
         {recipe && (
           <>
             <h1>{recipe.title}</h1>
@@ -84,13 +87,17 @@ export default function RecipeView() {
             <p>Dietary Requirements: {formatDiets(recipe.diets)}.</p>
             <div className="button-container">
               {isAuthenticated() ? (
-                <button onClick={handleSaveRecipe} disabled={saved} className="btn btn-primary">
+                <button
+                  onClick={handleSaveRecipe}
+                  disabled={saved}
+                  className="btn btn-primary"
+                >
                   {saved ? "Recipe Saved" : "Save Recipe"}
                 </button>
               ) : (
-                <Link 
-                  to="/login" 
-                  state={{ from: location }} 
+                <Link
+                  to="/login"
+                  state={{ from: location }}
                   className="btn btn-primary"
                 >
                   Save Recipe
@@ -103,4 +110,3 @@ export default function RecipeView() {
     </Layout>
   );
 }
-

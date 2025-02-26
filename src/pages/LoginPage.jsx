@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation, Navigate } from 'react-router-dom';
-import SignUpForm from '../components/SignUpForm';
-import LoginForm from '../components/LoginForm';
-import Layout from '../components/Layout';
-import '../App.css'; 
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation, Navigate } from "react-router-dom";
+import SignUpForm from "../components/SignUpForm";
+import LoginForm from "../components/LoginForm";
+import Layout from "../components/Layout";
+import "../App.css";
 
 export default function LoginPage() {
   const [user, setUser] = useState(null);
@@ -20,7 +20,7 @@ export default function LoginPage() {
   }, [user, from, navigate]);
 
   const toggleForm = () => {
-    setShowLoginForm(prevState => !prevState);
+    setShowLoginForm((prevState) => !prevState);
   };
 
   return (
@@ -34,14 +34,22 @@ export default function LoginPage() {
               <>
                 <LoginForm setUser={setUser} />
                 <div className="btn-container">
-                  <p><button onClick={toggleForm} className="btn-spacing">No account? SIGN UP</button></p>
+                  <p>
+                    <button onClick={toggleForm} className="btn-spacing">
+                      No account? SIGN UP
+                    </button>
+                  </p>
                 </div>
               </>
             ) : (
               <>
                 <SignUpForm setUser={setUser} />
                 <div className="btn-container">
-                  <p><button onClick={toggleForm} className="btn-spacing">Have an account? LOGIN</button></p>
+                  <p>
+                    <button onClick={toggleForm} className="btn-spacing">
+                      Have an account? LOGIN
+                    </button>
+                  </p>
                 </div>
               </>
             )}

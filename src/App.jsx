@@ -1,16 +1,16 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import './App.css';
-import LoginPage from './pages/LoginPage.jsx';
-import ProfilePage from './pages/ProfilePage.jsx';
-import HomePage from '../src/pages/HomePage.jsx';
-import NavBar from './components/NavBar.jsx';
-import RecipeView from './pages/RecipeView.jsx';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import LoginPage from "./pages/LoginPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
+import HomePage from "../src/pages/HomePage.jsx";
+import NavBar from "./components/NavBar.jsx";
+import RecipeView from "./pages/RecipeView.jsx";
 
 function App() {
   return (
-    <div className='App'>
-      <NavBar /> 
+    <div className="App">
+      <NavBar />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />

@@ -1,26 +1,26 @@
-import { useState } from 'react';
-import * as usersService from '../utilities/users-service.js';
+import { useState } from "react";
+import * as usersService from "../utilities/users-service.js";
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-    setError('');
+    setError("");
   }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
       const { user, token } = await usersService.login(credentials);
-      localStorage.setItem('token', token);
+      localStorage.setItem("token", token);
       setUser(user);
     } catch {
-      setError('Log In Failed - Try Again');
+      setError("Log In Failed - Try Again");
     }
   }
 
@@ -29,7 +29,9 @@ export default function LoginForm({ setUser }) {
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div className="mb-3 row justify-content-center">
           <div className="col-sm-8">
-            <label htmlFor="email" className="form-label">Email</label>
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
             <input
               type="text"
               className="form-control"
@@ -43,7 +45,9 @@ export default function LoginForm({ setUser }) {
         </div>
         <div className="mb-3 row justify-content-center">
           <div className="col-sm-8">
-            <label htmlFor="password" className="form-label">Password</label>
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
             <input
               type="password"
               className="form-control"
@@ -57,7 +61,9 @@ export default function LoginForm({ setUser }) {
         </div>
         <div className="mb-3 row justify-content-center">
           <div className="col-sm-8-custom">
-            <button type="submit" className="btn">LOGIN</button>
+            <button type="submit" className="btn">
+              LOGIN
+            </button>
           </div>
         </div>
       </form>

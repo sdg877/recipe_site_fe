@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { signUp } from '../utilities/users-service';
-import { useNavigate } from 'react-router-dom'; 
+import React, { useState } from "react";
+import { signUp } from "../utilities/users-service";
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirm: '',
-    error: ''
+    name: "",
+    email: "",
+    password: "",
+    confirm: "",
+    error: "",
   });
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleChange = (evt) => {
     setFormData({
       ...formData,
       [evt.target.name]: evt.target.value,
-      error: ''
+      error: "",
     });
   };
 
@@ -28,10 +28,13 @@ function SignUpForm() {
       delete formDataCopy.error;
       delete formDataCopy.confirm;
       await signUp(formDataCopy);
-      navigate('/recipes');
+      navigate("/recipes");
     } catch (error) {
-      console.error('Sign Up Error:', error);
-      setFormData({ ...formData, error: error.message || 'Sign Up Failed - Try Again' });
+      console.error("Sign Up Error:", error);
+      setFormData({
+        ...formData,
+        error: error.message || "Sign Up Failed - Try Again",
+      });
     }
   };
 
@@ -43,7 +46,9 @@ function SignUpForm() {
         <form autoComplete="off" onSubmit={handleSubmit}>
           <div className="mb-3 row justify-content-center">
             <div className="col-sm-6">
-              <label htmlFor="name" className="form-label">Name</label>
+              <label htmlFor="name" className="form-label">
+                Name
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -57,7 +62,9 @@ function SignUpForm() {
           </div>
           <div className="mb-3 row justify-content-center">
             <div className="col-sm-6">
-              <label htmlFor="email" className="form-label">Email</label>
+              <label htmlFor="email" className="form-label">
+                Email
+              </label>
               <input
                 type="email"
                 className="form-control"
@@ -71,7 +78,9 @@ function SignUpForm() {
           </div>
           <div className="mb-3 row justify-content-center">
             <div className="col-sm-6">
-              <label htmlFor="password" className="form-label">Password</label>
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
               <input
                 type="password"
                 className="form-control"
@@ -85,7 +94,9 @@ function SignUpForm() {
           </div>
           <div className="mb-3 row justify-content-center">
             <div className="col-sm-6">
-              <label htmlFor="confirm" className="form-label">Confirm Password</label>
+              <label htmlFor="confirm" className="form-label">
+                Confirm Password
+              </label>
               <input
                 type="password"
                 className="form-control"
@@ -99,7 +110,9 @@ function SignUpForm() {
           </div>
           <div className="mb-3 row justify-content-center">
             <div className="col-sm-6">
-              <button type="submit" className="btn" disabled={disable}>SIGN UP</button>
+              <button type="submit" className="btn" disabled={disable}>
+                SIGN UP
+              </button>
             </div>
           </div>
         </form>
